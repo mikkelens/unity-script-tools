@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Scripts.Tools.Types
+namespace Tools.Types
 {
 	[DefaultExecutionOrder(-100)]
 	public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Scripts.Tools.Types
+namespace Tools.Types
 {
 	[Serializable]
 	public struct TimedState

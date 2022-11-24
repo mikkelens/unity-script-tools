@@ -1,0 +1,18 @@
+{
+    "name": "TypesEditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:441e81d7445ccb642ad0143c0089ba80"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

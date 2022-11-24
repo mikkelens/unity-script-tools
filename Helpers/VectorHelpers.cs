@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics.CodeAnalysis;
+using UnityEngine;
 
 namespace Tools.Helpers
 {
+	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+	[SuppressMessage("ReSharper", "UnusedMember.Global")]
 	public static class VectorHelpers
 	{
 		// extensions

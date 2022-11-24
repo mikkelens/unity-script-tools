@@ -35,13 +35,13 @@ namespace Tools.Types
 			}
 		}
 
-		// IMPLICIT GET VALUE FROM STRUCT
+		// IMPLICIT GET STATE FROM STRUCT
 		public static implicit operator bool(TimedState timedStateSource) => timedStateSource.State;
 
 		// IMPLICIT ASSIGN STRUCT FROM STATE
 		// public static implicit operator TimedState(bool stateSource) => new TimedState(stateSource);
 
-		public TimedState(bool startState)
+		public TimedState(bool startState = false)
 		{
 			state = startState;
 			if (startState)

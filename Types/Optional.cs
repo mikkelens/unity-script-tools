@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace Tools.Types
 {
+	/// <summary>
+	/// "Optional" type. Has a generic value, and an "enabled" state, which is false by default.
+	/// It has a custom drawer in the inspector, and works fine as serialized field.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
 	[Serializable]
     public struct Optional<T>
     {
@@ -20,7 +25,7 @@ namespace Tools.Types
 	    public static implicit operator Optional<T>(bool enableSource) => new Optional<T>(default, enableSource); // optional from state
 	    public static implicit operator Optional<T>(T valueSource) => new Optional<T>(valueSource); // optional from value
 
-	    public Optional(T setValue, bool setEnable = false)
+	    public Optional(T setValue, bool setEnable = false) // always disabled by default
 	    {
 		    enabled = setEnable;
 		    value = setValue;

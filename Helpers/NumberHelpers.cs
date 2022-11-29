@@ -11,5 +11,6 @@ namespace Tools.Helpers
 		public static int AsSignedIntOrZero(this float value, float deadZone = 0f) =>
 			value.Abs() > deadZone ? value.AsIntSign() : 0;
 		public static float Abs(this float value) => Mathf.Abs(value);
+		public static float SignedMax(this float a, float b) => a.AsIntSign() * Mathf.Max(a.Abs(), b.Abs());
 	}
 }

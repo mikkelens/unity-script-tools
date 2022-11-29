@@ -1,8 +1,7 @@
-using Tools.Types;
 using UnityEditor;
 using UnityEngine;
 
-namespace Tools.Editor
+namespace Tools.Types.Editor
 {
 	[CustomPropertyDrawer(typeof(TimedState))]
 	public class TimedStateDrawer : PropertyDrawer
@@ -41,16 +40,18 @@ namespace Tools.Editor
 			stateRect.x += labelAndTime.width + spacing;
 
 			// BEGIN DRAWING //
+			int originalIndent = EditorGUI.indentLevel;
 			EditorGUI.BeginProperty(fullRect, label, fullProperty);
-
 			bool state = stateProperty.boolValue;
 			EditorGUI.BeginDisabledGroup(!state);
 			SerializedProperty relevantTimeProperty = state ? trueProperty : falseProperty;
 			EditorGUI.PropertyField(labelAndTime, relevantTimeProperty, label, false);
 			EditorGUI.EndDisabledGroup();
 
+			EditorGUI.indentLevel = 0;
 			EditorGUI.PropertyField(stateRect, stateProperty, GUIContent.none, false);
 			EditorGUI.EndProperty();
+			EditorGUI.indentLevel = originalIndent;
 			// END DRAWING //
 		}
 	}

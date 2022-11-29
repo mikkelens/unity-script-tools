@@ -1,8 +1,7 @@
-using Tools.Types;
 using UnityEditor;
 using UnityEngine;
 
-namespace Tools.Editor
+namespace Tools.Types.Editor
 {
 	[CustomPropertyDrawer(typeof(Optional<>))]
 	public class OptionalPropertyDrawer : PropertyDrawer
@@ -39,14 +38,17 @@ namespace Tools.Editor
 			enabledRect.x += labelAndValue.width + spacing;
 
 			// BEGIN DRAWING //
+			int originalIndent = EditorGUI.indentLevel;
 			EditorGUI.BeginProperty(fullRect, label, fullProperty);
 
 			EditorGUI.BeginDisabledGroup(enabledProperty.boolValue == false);
 			EditorGUI.PropertyField(labelAndValue, valueProperty, label, false);
 			EditorGUI.EndDisabledGroup();
 
+			EditorGUI.indentLevel = 0; // not sure why I need this but honestly dont change it
 			EditorGUI.PropertyField(enabledRect, enabledProperty, GUIContent.none, false);
 			EditorGUI.EndProperty();
+			EditorGUI.indentLevel = originalIndent;
 			// END DRAWING //
 		}
 	}

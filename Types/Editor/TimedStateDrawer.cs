@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Tools.Types.Editor
 {
 	[CustomPropertyDrawer(typeof(TimedState))]
-	public class TimedStateDrawer : PropertyDrawer
+	public class TimedStatePropertyDrawer : PropertyDrawer
 	{
 		private const string StateSerializedRef = "state";
 		private const string TrueSerializedRef = "latestTimeTrue";

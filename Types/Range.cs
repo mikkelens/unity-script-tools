@@ -8,7 +8,7 @@ namespace Tools.Types
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	[Serializable]
-	public struct Range<T> where T : IComparable<T>
+	public struct Range<T>
 	{
 		[SerializeField] private T min;
 		[SerializeField] private T max;

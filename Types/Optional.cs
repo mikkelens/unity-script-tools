@@ -19,7 +19,6 @@ namespace Tools.Types
 
 	    // GET VALUE FROM STRUCT
 	    public static implicit operator T(Optional<T> optionalSource) => optionalSource.Value; // value from optional
-	    // public static implicit operator bool(Optional<T> optionalSource) => optionalSource.Enabled; // state from optional
 
 	    // ASSIGN STRUCT FROM VALUE
 	    public static implicit operator Optional<T>(bool enableSource) => new Optional<T>(default, enableSource); // optional from state

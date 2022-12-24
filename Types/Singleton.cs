@@ -31,7 +31,7 @@ namespace Tools.Types
 
 		private protected virtual void DeleteThisDuplicate()
 		{
-			Debug.LogWarning($"There was multiple {nameof(T)} instances. Removing {nameof(T)} called '{name}'");
+			Debug.LogWarning($"There was multiple {typeof(T).Name} instances. Removing {typeof(T).Name} called '{name}'");
 			Destroy(gameObject);
 		}
 	}

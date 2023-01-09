@@ -32,5 +32,9 @@ namespace Tools.Helpers
 		public static float MinFromV3(this Vector3 vector3) => Mathf.Min(vector3.x, Mathf.Min(vector3.y, vector3.z));
 		public static float MaxFromV2(this Vector2 vector2) => Mathf.Max(vector2.x, vector2.y);
 		public static float MaxFromV3(this Vector3 vector3) => Mathf.Max(vector3.x, Mathf.Max(vector3.y, vector3.z));
+		public static Vector2 MinSquareV2(this Vector2 vector2) => vector2.MinFromV2().AsSquareV2();
+		public static Vector2 MaxSquareV2(this Vector2 vector2) => vector2.MaxFromV2().AsSquareV2();
+		public static Vector3 MinCubeV3(this Vector3 vector3) => vector3.MinFromV3().AsCubeV3();
+		public static Vector3 MaxCubeV3(this Vector3 vector3) => vector3.MaxFromV3().AsCubeV3();
 	}
 }

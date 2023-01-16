@@ -9,7 +9,7 @@ namespace Tools.Helpers
 	{
 		// size conversion extensions
 		public static Vector2 AsV2FromV3(this Vector3 vector3) => new Vector2(vector3.x, vector3.y);
-		public static Vector3 AsV3FromV2(this Vector2 vector2) => new Vector3(vector2.x, vector2.y);
+		public static Vector3 AsV3FromV2(this Vector2 vector2, float zValue = 0f) => new Vector3(vector2.x, vector2.y, zValue);
 
 		// int/float conversion extensions
 		public static Vector2 AsV2FromV2Int(this Vector2Int intVector2) => intVector2;

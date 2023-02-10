@@ -5,6 +5,7 @@ namespace Tools.Helpers
 {
 	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 	[SuppressMessage("ReSharper", "UnusedMember.Global")]
+	[SuppressMessage("ReSharper", "UnusedType.Global")]
 	public static class UIHelpers
 	{
 		// got this from https://answers.unity.com/questions/1100493/convert-recttransformrect-to-rect-world.html

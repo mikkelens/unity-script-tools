@@ -5,6 +5,7 @@ namespace Tools.Helpers
 {
 	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 	[SuppressMessage("ReSharper", "UnusedMember.Global")]
+	[SuppressMessage("ReSharper", "UnusedType.Global")]
 	public static class VectorHelpers
 	{
 		// size conversion extensions

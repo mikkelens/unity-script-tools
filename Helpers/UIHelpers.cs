@@ -17,6 +17,6 @@ namespace Tools.Helpers
 		}
 
 		public static Vector3 ScaleVector3(this RectTransform rectTransform, Vector3 size) => rectTransform.localToWorldMatrix.MultiplyVector(size);
-		public static Vector2 ScaleVector2(this RectTransform rectTransform, Vector2 size) => rectTransform.localToWorldMatrix.MultiplyVector(size.AsV3FromV2()).AsV2FromV3();
+		public static Vector2 ScaleVector2(this RectTransform rectTransform, Vector2 size) => rectTransform.localToWorldMatrix.MultiplyVector(size.V3FromV2()).V2FromV3();
 	}
 }

@@ -37,5 +37,12 @@ namespace Tools.Helpers
 		public static Vector2 MaxSquareV2(this Vector2 vector2) => vector2.MaxFromV2().AsSquareV2();
 		public static Vector3 MinCubeV3(this Vector3 vector3) => vector3.MinFromV3().AsCubeV3();
 		public static Vector3 MaxCubeV3(this Vector3 vector3) => vector3.MaxFromV3().AsCubeV3();
+
+		// normalization / circle
+		public static Vector2 WithinUnitCircle(this Vector2 vector2)
+		{
+			if (vector2.magnitude <= 1f) return vector2;
+			return vector2.normalized;
+		}
 	}
 }

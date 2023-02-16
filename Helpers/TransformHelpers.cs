@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Tools.Helpers
 {
+	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+	[SuppressMessage("ReSharper", "UnusedMember.Global")]
+	[SuppressMessage("ReSharper", "UnusedType.Global")]
 	public static class TransformHelpers
 	{
 		[CanBeNull]

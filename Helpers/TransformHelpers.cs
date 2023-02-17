@@ -28,5 +28,22 @@ namespace Tools.Helpers
 			}
 			return closestScript;
 		}
+
+		public static Transform ClosestTransform(this Transform transform, IEnumerable<Transform> otherTransforms)
+		{
+			Transform closestTransform = null;
+			float closestDistance = Mathf.Infinity;
+			Vector2 ourPos = transform.position.V2FromV3();
+			foreach (Transform otherTransform in otherTransforms)
+			{
+				Vector2 otherPos = otherTransform.position.V2FromV3();
+				float distance = Vector2.Distance(ourPos, otherPos);
+				if (distance >= closestDistance) continue;
+
+				closestTransform = otherTransform;
+				closestDistance = distance;
+			}
+			return closestTransform;
+		}
 	}
 }

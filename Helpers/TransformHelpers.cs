@@ -12,7 +12,7 @@ namespace Tools.Helpers
 	{
 		[CanBeNull]
 		public static T ClosestScript<T>(this Transform transform, IEnumerable<T> scriptsOfRightType)
-		where T : MonoBehaviour
+			where T : MonoBehaviour
 		{
 			T closestScript = null; // return null if empty list
 			float closestDistance = Mathf.Infinity;

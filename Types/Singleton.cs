@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics.CodeAnalysis;
+using UnityEngine;
 
 namespace Tools.Types
 {
+	[SuppressMessage("ReSharper", "VirtualMemberNeverOverridden.Global")]
 	[DefaultExecutionOrder(-100)]
 	public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 	{
@@ -31,7 +33,7 @@ namespace Tools.Types
 
 		private protected virtual void DeleteThisDuplicate()
 		{
-			Debug.LogWarning($"There was multiple {typeof(T).Name} instances. Removing {typeof(T).Name} called '{name}'");
+			Debug.Log($"{typeof(T).Name}: '{name}' found an already existing instance. Removing {name}'s GameObject.");
 			Destroy(gameObject);
 		}
 	}

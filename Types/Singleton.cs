@@ -33,7 +33,7 @@ namespace Tools.Types
 
 		private protected virtual void DeleteThisDuplicate()
 		{
-			Debug.Log($"{typeof(T).Name}: '{name}' found an already existing instance. Removing {name}'s GameObject.");
+			Debug.Log($"{typeof(Singleton<T>).Name} ({typeof(T).Name}) '{name}' found an already existing instance. Removing {name}'s GameObject.");
 			Destroy(gameObject);
 		}
 	}

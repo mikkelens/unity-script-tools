@@ -11,5 +11,11 @@ namespace Tools.Types
 			base.DeclareThisInstance();
 			DontDestroyOnLoad(gameObject);
 		}
+
+		private protected override void DeleteThisDuplicate()
+		{
+			Debug.Log($"{typeof(PersistentSingleton<T>).Name} ({typeof(T).Name}) '{name}' found an existing Persistent Singleton. Deleting self ('{name}').");
+			Destroy(gameObject);
+		}
 	}
 }

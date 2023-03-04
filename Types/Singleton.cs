@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace Tools.Types
@@ -9,7 +10,18 @@ namespace Tools.Types
 	{
 		// ReSharper disable MemberCanBePrivate.Global
 		// ReSharper disable UnusedMember.Global
-		public static T Instance { get; private set; }
+		private static T _instance;
+		public static T Instance
+		{
+			get
+			{
+				#if UNITY_EDITOR
+				if (_instance == null) Debug.LogError($"Tried accessing instance of {typeof(T).BaseType.GetNiceName()} when it did not exist!");
+				#endif
+				return _instance;
+			}
+		}
+
 		public static bool Exists => Instance != null;
 		// ReSharper restore MemberCanBePrivate.Global
 		// ReSharper restore UnusedMember.Global
@@ -28,12 +40,14 @@ namespace Tools.Types
 
 		private protected virtual void DeclareThisInstance()
 		{
-			Instance = this as T;
+			_instance = this as T;
 		}
 
-		private protected virtual void DeleteThisDuplicate()
+		private  void DeleteThisDuplicate()
 		{
-			Debug.Log($"{typeof(Singleton<T>).Name} ({typeof(T).Name}) '{name}' found an already existing instance. Removing {name}'s GameObject.");
+			#if UNITY_EDITOR
+			Debug.Log($"{GetType().BaseType.GetNiceName()} on GameObject '{gameObject.name}' found an existing {GetType().GetNiceName()}. Deleting GameObject of self (newest duplicate).");
+			#endif
 			Destroy(gameObject);
 		}
 	}

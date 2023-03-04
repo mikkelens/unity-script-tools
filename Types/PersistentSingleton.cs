@@ -1,5 +1,4 @@
-﻿using Sirenix.Utilities;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Tools.Types
 {
@@ -11,14 +10,6 @@ namespace Tools.Types
 		{
 			base.DeclareThisInstance();
 			DontDestroyOnLoad(gameObject);
-		}
-
-		private protected override void DeleteThisDuplicate()
-		{
-			#if UNITY_EDITOR
-			Debug.Log($"{GetType().BaseType.GetNiceName()} on GameObject '{gameObject.name}' found an existing {GetType().GetNiceName()}. Deleting self (newest duplicate).");
-			#endif
-			Destroy(gameObject);
 		}
 	}
 }

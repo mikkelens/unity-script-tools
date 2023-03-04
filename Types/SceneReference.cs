@@ -58,12 +58,14 @@ namespace Tools.Types
             {
 #if UNITY_EDITOR
                 // In editor we always use the asset's path
-                return GetScenePathFromAsset();
-#else
+                string path = GetScenePathFromAsset();
+                if (path == string.Empty) Debug.LogError("Missing asset for SceneReference!");
+                return path;
+                #else
             // At runtime we rely on the stored path value which we assume was serialized correctly at build time.
             // See OnBeforeSerialize and OnAfterDeserialize
             return scenePath;
-#endif
+                #endif
             }
             set
             {

@@ -15,5 +15,13 @@ namespace Tools.Helpers
 
 		private static readonly Random Random = new Random();
 		public static T RandomElement<T>(this List<T> list) => list[Random.Next(0, list.Count)];
+
+		public static List<T> WithoutIndex<T>(this List<T> list, int index)
+		{
+			if (index < 0 || index >= list.Count) throw new IndexOutOfRangeException();
+			List<T> newList = new List<T>(list);
+			newList.RemoveAt(index);
+			return newList;
+		}
 	}
 }

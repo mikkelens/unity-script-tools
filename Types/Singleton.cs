@@ -22,17 +22,17 @@ namespace Tools.Types
 			}
 		}
 
-		public static bool Exists => Instance != null;
+		public static bool Exists => _instance != null;
 		// ReSharper restore MemberCanBePrivate.Global
 		// ReSharper restore UnusedMember.Global
 
 		protected virtual void Awake()
 		{
-			if (Instance == null)
+			if (_instance == null)
 			{
 				DeclareThisInstance();
 			}
-			else if (Instance != this)
+			else if (_instance != this)
 			{
 				DeleteThisDuplicate();
 			}

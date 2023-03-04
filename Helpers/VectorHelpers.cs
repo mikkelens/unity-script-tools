@@ -41,8 +41,13 @@ namespace Tools.Helpers
 		// normalization / circle
 		public static Vector2 WithinUnitCircle(this Vector2 vector2)
 		{
-			if (vector2.magnitude <= 1f) return vector2;
+			if (vector2.magnitude <= 1f) return vector2; // within bounds of circle
 			return vector2.normalized;
+		}
+		public static Vector3 WithinUnitSphere(this Vector3 vector3)
+		{
+			if (vector3.magnitude <= 1f) return vector3; // within bounds of sphere
+			return vector3.normalized;
 		}
 
 		// with components

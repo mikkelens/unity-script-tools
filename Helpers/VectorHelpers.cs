@@ -44,5 +44,12 @@ namespace Tools.Helpers
 			if (vector2.magnitude <= 1f) return vector2;
 			return vector2.normalized;
 		}
+
+		// with components
+		public static Vector2 WithX(this Vector2 vector2, float x) => new Vector2(x, vector2.y);
+		public static Vector2 WithY(this Vector2 vector2, float y) => new Vector2(vector2.x, y);
+		public static Vector3 WithX(this Vector3 vector3, float x) => new Vector3(x, vector3.y, vector3.z);
+		public static Vector3 WithY(this Vector3 vector3, float y) => new Vector3(vector3.x, y, vector3.z);
+		public static Vector3 WithZ(this Vector3 vector3, float z) => new Vector3(vector3.x, vector3.y, z);
 	}
 }

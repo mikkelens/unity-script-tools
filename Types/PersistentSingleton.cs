@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Sirenix.Utilities;
+using UnityEngine;
 
 namespace Tools.Types
 {
@@ -14,7 +15,9 @@ namespace Tools.Types
 
 		private protected override void DeleteThisDuplicate()
 		{
-			Debug.Log($"{GetType().Name} of type ({GetType().BaseType?.Name}) found an existing Persistent Singleton. Deleting self ('{name}').");
+			#if UNITY_EDITOR
+			Debug.Log($"{GetType().BaseType.GetNiceName()} on GameObject '{gameObject.name}' found an existing {GetType().GetNiceName()}. Deleting self (newest duplicate).");
+			#endif
 			Destroy(gameObject);
 		}
 	}

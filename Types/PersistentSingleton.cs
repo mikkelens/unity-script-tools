@@ -14,7 +14,7 @@ namespace Tools.Types
 
 		private protected override void DeleteThisDuplicate()
 		{
-			Debug.Log($"{typeof(PersistentSingleton<T>).Name} ({typeof(T).Name}) '{name}' found an existing Persistent Singleton. Deleting self ('{name}').");
+			Debug.Log($"({GetType().Name} '{name}' ({GetType().BaseType?.Name}) found an existing Persistent Singleton. Deleting self ('{name}').");
 			Destroy(gameObject);
 		}
 	}

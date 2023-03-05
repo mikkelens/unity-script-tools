@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+#if UNITY_EDITOR
 using Sirenix.Utilities;
+#endif
 using UnityEngine;
 
 namespace Tools.Types

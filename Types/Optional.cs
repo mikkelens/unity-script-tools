@@ -6,7 +6,7 @@ namespace Tools.Types
 {
 	/// <summary>
 	/// "Optional" type. Has a generic value, and an "enabled" state, which is false by default.
-	/// It has a custom drawer in the inspector, and works fine as serialized field.
+	/// It has a custom drawer in the inspector, and works fine as a serialized field.
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	[Serializable]

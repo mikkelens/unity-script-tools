@@ -10,8 +10,7 @@ namespace Tools.Helpers
 	[SuppressMessage("ReSharper", "UnusedType.Global")]
 	public static class TransformHelpers
 	{
-		[CanBeNull]
-		public static T ClosestScript<T>(this Transform transform, IEnumerable<T> scriptsOfRightType)
+		[CanBeNull] public static T ClosestScript<T>(this Transform transform, IEnumerable<T> scriptsOfRightType)
 			where T : MonoBehaviour
 		{
 			T closestScript = null; // return null if empty list

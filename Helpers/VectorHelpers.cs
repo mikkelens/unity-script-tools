@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Tools.Helpers
@@ -56,5 +58,33 @@ namespace Tools.Helpers
 		public static Vector3 WithX(this Vector3 vector3, float x) => new Vector3(x, vector3.y, vector3.z);
 		public static Vector3 WithY(this Vector3 vector3, float y) => new Vector3(vector3.x, y, vector3.z);
 		public static Vector3 WithZ(this Vector3 vector3, float z) => new Vector3(vector3.x, vector3.y, z);
+
+		// list selection
+		public static Vector2? ClosestV2(this Vector2 position, List<Vector2> otherPositions)
+		{
+			Vector2? closestPosition = null;
+			float closestDistance = float.PositiveInfinity;
+			foreach (Vector2 otherPosition in otherPositions)
+			{
+				float newDistance = Vector2.Distance(position, otherPosition);
+				if (!(newDistance < closestDistance)) continue;
+				closestDistance = newDistance;
+				closestPosition = otherPosition;
+			}
+			return closestPosition;
+		}
+		public static Vector3? ClosestV3(this Vector3 position, List<Vector3> otherPositions)
+		{
+			Vector3? closestPosition = null;
+			float closestDistance = float.PositiveInfinity;
+			foreach (Vector3 newPoosition in otherPositions)
+			{
+				float newDistance = Vector3.Distance(position, newPoosition);
+				if (closestDistance <= newDistance) continue;
+				closestDistance = newDistance;
+				closestPosition = newPoosition;
+			}
+			return closestPosition;
+		}
 	}
 }

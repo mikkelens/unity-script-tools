@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
-namespace Tools.Helpers
+namespace Tools.Utils
 {
 	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 	[SuppressMessage("ReSharper", "UnusedMember.Global")]
@@ -13,11 +13,13 @@ namespace Tools.Helpers
 			if (nullableItem != null) return;
 			Debug.Log(message);
 		}
+
 		public static void LogWarningIfNull<T>(this T nullableItem, string message)
 		{
 			if (nullableItem != null) return;
 			Debug.LogWarning(message);
 		}
+
 		public static void LogErrorIfNull<T>(this T nullableItem, string message)
 		{
 			if (nullableItem != null) return;

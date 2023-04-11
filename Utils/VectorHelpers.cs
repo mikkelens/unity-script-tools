@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Tools.Helpers
+namespace Tools.Utils
 {
 	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 	[SuppressMessage("ReSharper", "UnusedMember.Global")]

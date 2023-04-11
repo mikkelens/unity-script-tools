@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace Tools.Helpers
+namespace Tools.Utils
 {
 	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 	[SuppressMessage("ReSharper", "UnusedMember.Global")]

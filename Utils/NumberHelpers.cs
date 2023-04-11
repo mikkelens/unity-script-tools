@@ -2,7 +2,7 @@
 using Tools.Types;
 using UnityEngine;
 
-namespace Tools.Helpers
+namespace Tools.Utils
 {
 	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 	[SuppressMessage("ReSharper", "UnusedMember.Global")]

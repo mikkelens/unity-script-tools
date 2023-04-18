@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Tools.Editor
 {
@@ -26,21 +28,24 @@ namespace Tools.Editor
 			Texture2D[] allTextures = textureList.ToArray();
 
 			// Create array
-			int maxWidth = allTextures.Max(x => x.width);
-			int maxHeight = allTextures.Max(x => x.height);
-			Texture2DArray tex2DArray = new Texture2DArray(maxWidth, maxHeight, allTextures.Length, allTextures[0].format, false);
-
+			int mapHeight = allTextures.Max(x => x.height);
+			int mapWidth = allTextures.Max(x => x.width);
+			Texture2DArray tex2DArray = new Texture2DArray(mapWidth, mapHeight, allTextures.Length, allTextures[0].format, false, false, true);
+			int requiredPixels = mapWidth * mapHeight;
 			for (int i = 0; i < allTextures.Length; i++)
 			{
 				Texture2D newTexture2D = DuplicateTexture(allTextures[i]);
-				Color[] pixelData = newTexture2D.GetPixels();
-				tex2DArray.SetPixels(pixelData, i);
+				Color[] pixels = newTexture2D.GetPixels();
+				Color[] empty = new Color[requiredPixels - pixels.Length];
+				Array.Fill(empty, new Color(0, 0, 0, 0));
+				Color[] pixelsWithEmpty = pixels.Concat(empty).ToArray();
+				tex2DArray.SetPixels(pixelsWithEmpty, i);
 			}
 			tex2DArray.Apply();
 
 			// Save array
 			const string defaultName = "New Texture2D Array";
-			string newFilePath = $"{AssetDatabase.GetAssetPath(Selection.activeObject)}/{defaultName}.";
+			string newFilePath = $"{AssetDatabase.GetAssetPath(Selection.activeObject)}/{defaultName}.png";
 			AssetDatabase.CreateAsset(tex2DArray, newFilePath);
 			// AssetDatabase.Refresh(); // unneeded?
 		}

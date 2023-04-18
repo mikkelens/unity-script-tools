@@ -15,7 +15,8 @@ namespace Tools.Editor {
 	{
 		[MenuItem( "Assets/Create/Editor Script", isValidateFunction: true )]
         public static bool CanCreateEditorScript() => Selection.activeObject
-                                                      && AssetDatabase.Contains( Selection.activeObject ) && Selection.activeObject.GetType() == typeof( MonoScript );
+                                                      && AssetDatabase.Contains( Selection.activeObject )
+                                                      && Selection.activeObject.GetType() == typeof( MonoScript );
 
         [MenuItem( "Assets/Create/Editor Script", priority = 0)]
         public static void CreateEditorScript() {

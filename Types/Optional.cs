@@ -18,6 +18,11 @@ namespace Tools.Types
 		public T Value => value;
 		public bool Enabled => enabled;
 
+		public override string ToString()
+		{
+			return $"{(Enabled ? "Enabled" : "Disabled")}<{Value.ToString()}>";
+		}
+
 	#region Conversion and construction
 		// GET VALUE FROM STRUCT
 		public static implicit operator T(Optional<T> optionalSource) => optionalSource.Value; // value from optional

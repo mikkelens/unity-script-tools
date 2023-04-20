@@ -1,17 +1,19 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Tools.Utils
 {
 	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 	[SuppressMessage("ReSharper", "UnusedMember.Global")]
 	[SuppressMessage("ReSharper", "UnusedType.Global")]
-	public static class ScriptableObjectHelper
+	public static class ScriptableObjectUtils
 	{
 		#if UNITY_EDITOR
-		public static T[] GetAllInstances<T>()
-		where T : ScriptableObject
+		public static T[] GetAllInstancesInAssets<T>()
+			where T : ScriptableObject
 		{
 			// Find assets using tags ("t:[...]")
 			string[] guids = AssetDatabase.FindAssets("t:" + typeof(T).Name);

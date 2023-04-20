@@ -1,6 +1,5 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Tools.Utils
@@ -8,7 +7,7 @@ namespace Tools.Utils
 	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 	[SuppressMessage("ReSharper", "UnusedMember.Global")]
 	[SuppressMessage("ReSharper", "UnusedType.Global")]
-	public static class PathUtiils
+	public static class PathHelpers
 	{
 		public static string ToAssetsFromGlobalPath(this string globalPath)
 		{
@@ -31,7 +30,7 @@ namespace Tools.Utils
 			}
 			return appendage + "/" + assetsPath;
 		}
-		public static string DirectoryFromFilePath(this string filePath)
+		public static string ToDirectoryFromFilePath(this string filePath)
 		{
 			int directoryTrimIndex = filePath.LastIndexOf('/');
 			return filePath.Remove(directoryTrimIndex);

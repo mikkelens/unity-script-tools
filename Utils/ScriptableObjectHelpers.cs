@@ -61,8 +61,8 @@ namespace Tools.Utils
 			NameLookupTable[typeof(T).Name] = fileName;
 
 			// remember directory for next time
-			string selectedDirectory = assetsFilePath.ToDirectoryFromFilePath(); // local file -> local folder
-			DirectoryLookupTable[typeof(T).Name] = selectedDirectory; // apparantly also creates new key/value pairs if the key does not exist
+			directoryPath = assetsFilePath.ToDirectoryFromFilePath(); // local file -> local folder
+			DirectoryLookupTable[typeof(T).Name] = directoryPath; // apparantly also creates new key/value pairs if the key does not exist
 
 			return TrySaveWithAssetPath(asset, assetsFilePath);
 		}

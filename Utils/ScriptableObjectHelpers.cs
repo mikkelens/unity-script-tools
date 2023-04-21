@@ -17,7 +17,6 @@ namespace Tools.Utils
 		// for trying to help user with navigating to right directory, caches last directory path (value) with type (key)
 		private static readonly Dictionary<string, string> NameLookupTable = new Dictionary<string, string>(); // todo: make this import data after recompilation
 		private static readonly Dictionary<string, string> DirectoryLookupTable = new Dictionary<string, string>(); // todo: make this import data after recompilation
-
 		private static string RememberedNameOrDefault(string typeName)
 		{
 			// Debug.Log($"Trying to get directory from lookup table '{NameLookupTable.GetType().GetNiceName()}' with keys [{string.Join(',', NameLookupTable.Keys)}]");
@@ -27,7 +26,6 @@ namespace Tools.Utils
 			}
 			return fileName;
 		}
-
 		private static string RememberedDirectoryOrDefault(string typeName)
 		{
 			// Debug.Log($"Trying to get directory from lookup table '{DirectoryLookupTable.GetType().GetNiceName()}' with keys [{string.Join(',', DirectoryLookupTable.Keys)}]");
@@ -44,14 +42,12 @@ namespace Tools.Utils
 			string directoryPath = RememberedDirectoryOrDefault(typeof(T).Name);
 			return asset.TrySaveAssetWithFileWindow(title, ref directoryPath);
 		}
-
 		[CanBeNull] public static T TrySaveAssetWithFileWindow<T>(this T asset, string title, ref string directoryPath)
 			where T : ScriptableObject
 		{
 			string fileName = RememberedNameOrDefault(typeof(T).Name);
 			return asset.TrySaveAssetWithFileWindow(title, ref directoryPath, fileName);
 		}
-
 		[CanBeNull] public static T TrySaveAssetWithFileWindow<T>(this T asset, string title, ref string directoryPath, string fileName)
 			where T : ScriptableObject
 		{

@@ -1,0 +1,3 @@
+[submodule "MeshSaver"]
+	path = MeshSaver
+	url = https://github.com/mikkelens/mesh-saver

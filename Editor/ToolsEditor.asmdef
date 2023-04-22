@@ -2,7 +2,7 @@
     "name": "ToolsEditor",
     "rootNamespace": "",
     "references": [
-        "GUID:97529df033b6ea7419a14412051ec480"
+        "Utils"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace Tools.Types
@@ -20,10 +21,10 @@ namespace Tools.Types
 
 		public override string ToString()
 		{
-			return $"{(Enabled ? "Enabled" : "Disabled")}<{Value.ToString()}>";
+			return $"{(Enabled ? "Enabled" : "Disabled")}<{typeof(T).GetNiceName()}>({Value.ToString()})";
 		}
 
-	#region Conversion and construction
+		#region Conversion and construction
 		// GET VALUE FROM STRUCT
 		public static implicit operator T(Optional<T> optionalSource) => optionalSource.Value; // value from optional
 		// ASSIGN STRUCT FROM VALUE
@@ -34,9 +35,9 @@ namespace Tools.Types
 			enabled = setEnable;
 			value = setValue;
 		}
-	#endregion
+		#endregion
 
-	#region Equal comparison
+		#region Equality comparison
 		public override bool Equals(object obj)
 		{
 			return obj is Optional<T> other && Equals(other);
@@ -57,6 +58,6 @@ namespace Tools.Types
 		{
 			return !o1.Equals(o2);
 		}
-	#endregion
+		#endregion
 	}
 }

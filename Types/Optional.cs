@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Sirenix.Utilities;
 using UnityEngine;
 
@@ -59,5 +60,13 @@ namespace Tools.Types
 			return !o1.Equals(o2);
 		}
 		#endregion
+	}
+
+	[SuppressMessage("ReSharper", "UnusedType.Global")]
+	[SuppressMessage("ReSharper", "UnusedMember.Global")]
+	public static class OptionalHelpers
+	{
+		public static Optional<T> AsEnabled<T>(this T value) => new Optional<T>(value, true);
+		public static Optional<T> AsDisabled<T>(this T value) => new Optional<T>(value, false);
 	}
 }

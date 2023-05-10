@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+#if UNITY_EDITOR
 using Sirenix.Utilities;
+#endif
 using UnityEngine;
 
 namespace Tools.Types
@@ -22,7 +24,10 @@ namespace Tools.Types
 
 		public override string ToString()
 		{
+			#if UNITY_EDITOR
 			return $"{(Enabled ? "Enabled" : "Disabled")}<{typeof(T).GetNiceName()}>({Value.ToString()})";
+			#endif
+			return $"{(Enabled ? "Enabled" : "Disabled")}<{typeof(T).FullName}>({Value.ToString()})";
 		}
 
 		#region Conversion and construction

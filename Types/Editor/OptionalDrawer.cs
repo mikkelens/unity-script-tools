@@ -33,7 +33,7 @@ namespace Tools.Types.Editor
 			Rect enabledRect = fullRect;
 
 			enabledRect.width = enabledRect.height;
-			labelAndValue.width -= enabledRect.width;
+			labelAndValue.width -= enabledRect.width + spacing;
 
 			enabledRect.x += labelAndValue.width + spacing;
 

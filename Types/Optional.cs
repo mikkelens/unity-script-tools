@@ -22,10 +22,15 @@ namespace Tools.Types
 		public T Value => value;
 		public bool Enabled => enabled;
 
+		public const string ValueName = nameof(value);
+		public const string EnabledName = nameof(enabled);
+
 		public override string ToString()
 		{
 			#if UNITY_EDITOR
+			#if ODIN_INSPECTOR
 			return $"{(Enabled ? "Enabled" : "Disabled")}<{typeof(T).GetNiceName()}>({Value.ToString()})";
+			#endif
 			#endif
 			return $"{(Enabled ? "Enabled" : "Disabled")}<{typeof(T).FullName}>({Value.ToString()})";
 		}
@@ -63,6 +68,17 @@ namespace Tools.Types
 		public static bool operator !=(Optional<T> o1, Optional<T> o2)
 		{
 			return !o1.Equals(o2);
+		}
+		#endregion
+
+		#region Data copying
+		public Optional<T> WithValue(T newValue)
+		{
+			return new Optional<T>(newValue, Enabled);
+		}
+		public Optional<T> WithEnabled(bool newEnable)
+		{
+			return new Optional<T>(Value, newEnable);
 		}
 		#endregion
 	}

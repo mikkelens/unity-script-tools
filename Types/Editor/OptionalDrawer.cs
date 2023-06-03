@@ -6,12 +6,9 @@ namespace Tools.Types.Editor
 	[CustomPropertyDrawer(typeof(Optional<>))]
 	public class OptionalPropertyDrawer : PropertyDrawer
 	{
-		private const string ValueSerializedRef = "value";
-		private const string EnabledSerializedRef = "enabled";
-
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
-			SerializedProperty valueProperty = property.FindPropertyRelative(ValueSerializedRef);
+			SerializedProperty valueProperty = property.FindPropertyRelative(Optional<bool>.ValueName);
 			return EditorGUI.GetPropertyHeight(valueProperty);
 		}
 
@@ -26,8 +23,8 @@ namespace Tools.Types.Editor
 			float spacing = EditorGUIUtility.standardVerticalSpacing;
 
 			// find sub-properties
-			SerializedProperty valueProperty = fullProperty.FindPropertyRelative(ValueSerializedRef);
-			SerializedProperty enabledProperty = fullProperty.FindPropertyRelative(EnabledSerializedRef);
+			SerializedProperty valueProperty = fullProperty.FindPropertyRelative(Optional<bool>.ValueName);
+			SerializedProperty enabledProperty = fullProperty.FindPropertyRelative(Optional<bool>.EnabledName);
 
 			Rect labelAndValue = fullRect;
 			Rect enabledRect = fullRect;

@@ -1,6 +1,6 @@
 ﻿namespace Tools.Types
 {
-	public enum Direction
+	public enum Cardinal
 	{
 		Up,
 		Down,

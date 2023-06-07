@@ -29,6 +29,14 @@ namespace Tools.Types.Editor
 			SerializedProperty valueProperty = fullProperty.FindPropertyRelative(ValueSerializedRef);
 			SerializedProperty relativityProperty = fullProperty.FindPropertyRelative(RelativitySerializedRef);
 
+			// constrain relativity value
+			if (relativityProperty.floatValue < 0)
+			{
+				relativityProperty.floatValue = 0;
+				fullProperty.serializedObject.ApplyModifiedPropertiesWithoutUndo(); // not necessary to record undo
+			}
+
+			// prepare drawing
 			Rect relativityRect = fullRect;
 			Rect labelAndValueRect = fullRect;
 

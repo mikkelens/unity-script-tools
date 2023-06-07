@@ -41,7 +41,7 @@ namespace Tools.Types.Editor
 			EditorGUI.PropertyField(labelAndValue, valueProperty, label, true);
 			EditorGUI.EndDisabledGroup();
 
-			EditorGUI.indentLevel = 0; // not sure why I need this but honestly dont change it
+			// EditorGUI.indentLevel = 0; // not sure why I need this but honestly dont change it
 			EditorGUI.PropertyField(enabledRect, enabledProperty, GUIContent.none, true);
 			EditorGUI.EndProperty();
 			EditorGUI.indentLevel = originalIndent;

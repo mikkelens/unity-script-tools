@@ -30,7 +30,7 @@ namespace Tools.Types
 			return newValue;
 		}
 
-	#region Conversion and construction
+		#region Conversion and construction
 		// GET VALUE FROM STRUCT
 		public static implicit operator Vector3(Vector3Optional optionalSource) => optionalSource.AsRawValues; // value from optional
 		// ASSIGN STRUCT FROM VALUE
@@ -42,6 +42,6 @@ namespace Tools.Types
 			y = new Optional<float>(defaultValues.y, enabled);
 			z = new Optional<float>(defaultValues.z, enabled);
 		}
-	#endregion
+		#endregion
 	}
 }

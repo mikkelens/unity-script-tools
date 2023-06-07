@@ -29,6 +29,37 @@ namespace Tools.Types.Editor
 			SerializedProperty minProperty = fullProperty.FindPropertyRelative(MinSerializedRef);
 			SerializedProperty maxProperty = fullProperty.FindPropertyRelative(MaxSerializedRef);
 
+			// constrain values
+			bool anyChange = false;
+			if (minProperty.propertyType == SerializedPropertyType.Integer) // both have same type
+			{
+				if (maxProperty.intValue < minProperty.intValue)
+				{
+					maxProperty.intValue = minProperty.intValue;
+					anyChange = true;
+				}
+				if (minProperty.floatValue > maxProperty.intValue)
+				{
+					minProperty.intValue = maxProperty.intValue;
+					anyChange = true;
+				}
+			}
+			else if (minProperty.propertyType == SerializedPropertyType.Float)
+			{
+				if (maxProperty.floatValue < minProperty.floatValue)
+				{
+					maxProperty.floatValue = minProperty.floatValue;
+					anyChange = true;
+				}
+				if (minProperty.floatValue > maxProperty.floatValue)
+				{
+					minProperty.floatValue = maxProperty.floatValue;
+					anyChange = true;
+				}
+			}
+			if (anyChange) fullProperty.serializedObject.ApplyModifiedProperties();
+
+			// prepare draw
 			Rect maxRect = fullRect;
 			Rect labelAndMinRect = fullRect;
 
@@ -45,7 +76,7 @@ namespace Tools.Types.Editor
 			EditorGUI.BeginProperty(fullRect, label, fullProperty);
 			EditorGUI.PropertyField(labelAndMinRect, minProperty, label, false);
 
-			EditorGUI.indentLevel = 0;
+			// EditorGUI.indentLevel++;
 			EditorGUI.PropertyField(maxRect, maxProperty, GUIContent.none, false);
 			EditorGUI.EndProperty();
 			EditorGUI.indentLevel = originalIndent;

@@ -1,14 +1,8 @@
 {
-    "name": "ToolsEditor",
+    "name": "Attributes",
     "rootNamespace": "",
-    "references": [
-        "Utils",
-        "Types",
-        "Attributes"
-    ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "references": [],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

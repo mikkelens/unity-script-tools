@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 #if UNITY_EDITOR
 using Sirenix.Utilities;
 #endif

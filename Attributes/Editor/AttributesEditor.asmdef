@@ -1,10 +1,8 @@
 {
-    "name": "ToolsEditor",
+    "name": "AttributesEditor",
     "rootNamespace": "",
     "references": [
-        "Utils",
-        "Types",
-        "Attributes"
+        "GUID:ac5dd38a35eb9e94393d56f43b509ad8"
     ],
     "includePlatforms": [
         "Editor"

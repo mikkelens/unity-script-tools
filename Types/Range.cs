@@ -8,7 +8,7 @@ namespace Tools.Types
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	[Serializable]
-	public struct Range<T>
+	public struct Range<T> : IEquatable<Range<T>> where T : IEquatable<T>, new()
 	{
 		[SerializeField] private T min;
 		[SerializeField] private T max;
@@ -24,6 +24,15 @@ namespace Tools.Types
 		{
 			min = setMin;
 			max = setMax;
+		}
+
+		public bool Equals(Range<T> other)
+		{
+			return min.Equals(other.min) && max.Equals(other.max);
+		}
+		public override int GetHashCode()
+		{
+			return HashCode.Combine(min, max);
 		}
 	}
 }

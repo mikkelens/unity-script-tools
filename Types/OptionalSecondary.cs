@@ -1,14 +1,25 @@
 using System;
+#if ODIN_INSPECTOR
 using Sirenix.OdinInspector;
+#endif
 using UnityEngine;
 
 namespace Tools.Types
 {
-	[Serializable, InlineProperty]
+	#if ODIN_INSPECTOR
+	[InlineProperty]
+	#endif
+	[Serializable]
 	public struct OptionalSecondary<T>
 	{
-		[SerializeField, HideLabel, HorizontalGroup("range")] private T primary;
-		[SerializeField, HideLabel, HorizontalGroup("range")] private Optional<T> secondary;
+		#if ODIN_INSPECTOR
+		[HideLabel, HorizontalGroup("range")]
+		#endif
+		[SerializeField] private T primary;
+		#if ODIN_INSPECTOR
+		[HideLabel, HorizontalGroup("range")]
+		#endif
+		[SerializeField] private Optional<T> secondary;
 
 		public OptionalSecondary(T firstValue)
 		{

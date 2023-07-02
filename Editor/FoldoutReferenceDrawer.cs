@@ -12,8 +12,8 @@ namespace Tools.Editor
 	/// </summary>
 	/// <source href="https://forum.unity.com/threads/editor-tool-better-scriptableobject-inspector-editing.484393/"></source>
 	// [CustomPropertyDrawer(typeof(FoldoutReferenceAttribute), true)]
-	// [CustomPropertyDrawer(typeof(FoldoutScriptableObject), true)]
-	public class FoldoutReferenceDrawer : CompositeDrawer
+	[CustomPropertyDrawer(typeof(FoldoutScriptableObject), true)]
+	public class FoldoutReferenceDrawer : PropertyDrawer
 	{
 		private UnityEditor.Editor _editor;
 

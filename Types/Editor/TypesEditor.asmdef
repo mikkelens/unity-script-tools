@@ -2,7 +2,7 @@
     "name": "TypesEditor",
     "rootNamespace": "",
     "references": [
-        "GUID:4b65762937db9f644874cc45556d9ead"
+        "Types"
     ],
     "includePlatforms": [
         "Editor"

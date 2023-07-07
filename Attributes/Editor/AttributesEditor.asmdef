@@ -2,7 +2,7 @@
     "name": "AttributesEditor",
     "rootNamespace": "",
     "references": [
-        "GUID:ac5dd38a35eb9e94393d56f43b509ad8"
+        "GUID:0a4b0f8ed3dc9b541b5f29a22eaac060"
     ],
     "includePlatforms": [
         "Editor"

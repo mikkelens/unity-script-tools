@@ -38,7 +38,7 @@ namespace Tools.Types.Editor
 					maxProperty.intValue = minProperty.intValue;
 					anyChange = true;
 				}
-				if (minProperty.floatValue > maxProperty.intValue)
+				if (minProperty.intValue > maxProperty.intValue)
 				{
 					minProperty.intValue = maxProperty.intValue;
 					anyChange = true;

@@ -19,12 +19,19 @@ namespace Tools.Editor
 
 		public override void OnGUI(Rect fullPropertyRect, SerializedProperty property, GUIContent label)
 		{
-			GUIContent thisLabel = label.text == "" ? new GUIContent(label) { text = "Element" } : label;
+			GUIContent thisLabel = label.text == ""
+				? new GUIContent(label) { text = "Unknown" }
+				: label;
 
-			if (property.objectReferenceValue == null)
+			Object propertyObject = property.objectReferenceValue;
+			if (propertyObject == null)
 			{
 				EditorGUI.PropertyField(fullPropertyRect, property, label, false); // draw content with label
 				return;
+			}
+			if (thisLabel.text == "Unknown")
+			{
+				thisLabel = new GUIContent(propertyObject.name);
 			}
 
 			Rect labelRect = fullPropertyRect;
@@ -41,7 +48,7 @@ namespace Tools.Editor
 				EditorGUI.indentLevel++;
 				if (!_editor)
 				{
-					UnityEditor.Editor.CreateCachedEditor(property.objectReferenceValue, null, ref _editor);
+					UnityEditor.Editor.CreateCachedEditor(propertyObject, null, ref _editor);
 				}
 				_editor.OnInspectorGUI();
 				EditorGUI.indentLevel--;
